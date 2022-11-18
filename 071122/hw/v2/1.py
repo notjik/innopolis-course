@@ -26,7 +26,6 @@ while True:
         elif 0 <= months < 12:
             pass
         else:
-            print(months)
             raise ValueError
         years += now.year - int(y)
         print('\nС момента вашего рождения прошло:', end=' ')
