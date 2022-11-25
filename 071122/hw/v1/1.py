@@ -1,5 +1,8 @@
 from functools import reduce
 
+"""
+Найдите сумму и произведение элементов списка. Результаты вывести в консоль.
+"""
 
 def check(lst: list) -> bool:
     for i in lst:
