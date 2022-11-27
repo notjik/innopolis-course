@@ -6,7 +6,7 @@
 """
 while True:
     tmp = list(map(lambda x: x.strip(), input('Введите два числа через пробел: ').split()))[:2]
-    while not (tmp[0].isdecimal() or tmp[-1].isdecimal()):
+    while not (tmp and (tmp[0].isdecimal() or tmp[-1].isdecimal())):
         tmp = list(map(lambda x: x.strip(), input('Введите два числа через пробел: ').split()))[:2]
     a, b = map(int, tmp)
     lst = [i for i in range(int(tmp[0]), int(tmp[-1]) + 1) if not (i % 3)]
