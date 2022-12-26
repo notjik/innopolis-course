@@ -16,8 +16,8 @@ def repl(s: str) -> str:
 
 
 parser = argparse.ArgumentParser(prog='ParseTitle')
-parser.add_argument('-T', '--title', nargs='*', type=str, help='name of your topic')
-parser.add_argument('-D', '--date', type=str, help='date of your topic',
+parser.add_argument('-t', '--title', nargs='*', type=str, help='name of your topic')
+parser.add_argument('-d', '--date', type=str, help='date of your topic',
                     default=datetime.datetime.now().strftime("%d%m%y"))
 parser = parser.parse_args()
 if parser.title:
