@@ -4,7 +4,7 @@
 <strong>English</strong>
 </summary>
 
-# Innopolis course [(Code future)](https://futurecode.ru)
+# Innopolis course [(Code future)](https://stc.innopolis.university/pytbot)
 
 ## Repository of classworks and homeworks of the Innopolis course "Telegram bots in Python"
 
@@ -18,7 +18,7 @@
 <strong>Русский</strong>
 </summary>
 
-# Курс Университета Иннополис [(Код будущего)](https://futurecode.ru)
+# Курс Университета Иннополис [(Код будущего)](https://stc.innopolis.university/pytbot)
 
 ## Репозиторий классных работ и домашних заданий курса Университета Иннополис "Telegram-боты на Python"
 
