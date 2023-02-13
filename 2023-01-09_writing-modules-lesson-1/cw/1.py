@@ -79,7 +79,7 @@ class Calculator:
                     print('Результат:', mul(num1, num2))
                 case '/' | 4:
                     print('Результат:', div(num1, num2))
-                case '^' | 4:
+                case '^' | 5:
                     print('Результат:', power(num1, num2))
                 case _:
                     print('Неверный выбор')
