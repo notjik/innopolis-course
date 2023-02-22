@@ -1,4 +1,4 @@
-"""↓ personal work ↓ 29"""
+"""↓ personal work ↓"""
 find = 100001
 top = int(find**1.3)
 primes = [True] * top
