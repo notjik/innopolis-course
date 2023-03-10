@@ -2,4 +2,6 @@
 venv
 __pycache__
 *.zip
+/manuals
 .env
+*.log

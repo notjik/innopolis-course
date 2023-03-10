@@ -142,151 +142,18 @@ async def start_message(msg: types.Message):
                      'This is an improved echo bot.')  # Request with a message to the user
 
 
-@dispatcher.message_handler(content_types=['text'])
-async def echo_text(msg: types.Message):
+@dispatcher.message_handler(content_types=['any'])
+async def echo(msg: types.Message):
     """
-    Echo text function.
+    Echo function.
 
     :param msg: message object
     :return: send message
     """
-    logging(msg, 'text', msg.text)  # Calling the logger
+    logging(msg, msg.content_type, '{}'.format(msg))  # Calling the logger
     await bot.copy_message(chat_id=msg.chat.id,
                            from_chat_id=msg.chat.id,
-                           message_id=msg.message_id)  # Request with text to the user
-
-
-@dispatcher.message_handler(content_types=['sticker'])
-async def echo_sticker(msg: types.Message):
-    """
-    Echo sticker function.
-
-    :param msg: message object
-    :return: send sticker
-    """
-    logging(msg, 'sticker', '{}'.format(msg.sticker.file_id))  # Calling the logger
-    await bot.send_sticker(chat_id=msg.chat.id,
-                           sticker=msg.sticker)  # Request with a sticker to the user
-
-
-@dispatcher.message_handler(content_types=['audio'])
-async def echo_audio(msg: types.Message):
-    """
-    Echo audio function.
-
-    :param msg: message object
-    :return: send audio
-    """
-    logging(msg, 'audio', '{}'.format(msg.audio.file_id))  # Calling the logger
-    await bot.send_audio(chat_id=msg.chat.id,
-                         audio=msg.audio.file_id,
-                         caption=msg.caption)  # Request with audio to the user
-
-
-@dispatcher.message_handler(content_types=['photo'])
-async def echo_photo(msg: types.Message):
-    """
-    Echo photo function.
-
-    :param msg: message object
-    :return: send photo
-    """
-    logging(msg, 'photo', '{}'.format(msg.photo[-1].file_id))  # Calling the logger
-    await bot.send_photo(chat_id=msg.chat.id,
-                         photo=msg.photo[-1].file_id,
-                         caption=msg.caption)  # Request with photo to the user
-
-
-@dispatcher.message_handler(content_types=['document'])
-async def echo_document(msg: types.Message):
-    """
-    Echo document function.
-
-    :param msg: message object
-    :return: send document
-    """
-    logging(msg, 'document', '{}'.format(msg.document.file_id))  # Calling the logger
-    await bot.send_document(chat_id=msg.chat.id,
-                            document=msg.document.file_id,
-                            caption=msg.caption)  # Request with document to the user
-
-
-@dispatcher.message_handler(content_types=['voice'])
-async def echo_voice(msg: types.Message):
-    """
-    Echo voice function.
-
-    :param msg: message object
-    :return: send voice
-    """
-    logging(msg, 'voice', '{}'.format(msg.voice.file_id))  # Calling the logger
-    await bot.send_voice(chat_id=msg.chat.id,
-                         voice=msg.voice.file_id)  # Request with voice to the user
-
-
-@dispatcher.message_handler(content_types=['location'])
-async def echo_location(msg: types.Message):
-    """
-    Echo location function.
-
-    :param msg: message object
-    :return: send location
-    """
-    logging(msg, 'location',
-            'lat {}\n lon{}'.format(msg.location.latitude, msg.location.longitude))  # Calling the logger
-    await bot.send_location(chat_id=msg.chat.id,
-                            longitude=msg.location.longitude,
-                            latitude=msg.location.latitude)  # Request with location to the user
-
-
-@dispatcher.message_handler(content_types=['contact'])
-async def echo_contact(msg: types.Message):
-    """
-    Echo contact function.
-
-    :param msg: message object
-    :return: send contact
-    """
-    logging(msg,
-            'contact',
-            'First Name: {}\nLast Name: {}\nPhone Number: {}\nVCard: {}\n'.format(
-                msg.contact.first_name,
-                msg.contact.last_name,
-                msg.contact.phone_number,
-                msg.contact.vcard)
-            )  # Calling the logger
-    await bot.send_contact(chat_id=msg.chat.id,
-                           phone_number=msg.contact.phone_number,
-                           first_name=msg.contact.first_name,
-                           last_name=msg.contact.last_name,
-                           vcard=msg.contact.vcard)  # Request with contact to the user
-
-
-@dispatcher.message_handler(content_types=['video'])
-async def echo_video(msg: types.Message):
-    """
-    Echo video function.
-
-    :param msg: message object
-    :return: send video
-    """
-    logging(msg, 'video', '{}'.format(msg.video.file_id))  # Calling the logger
-    await bot.send_video(chat_id=msg.chat.id,
-                         video=msg.video.file_id,
-                         caption=msg.caption)  # Request with video to the user
-
-
-@dispatcher.message_handler(content_types=['video_note'])
-async def echo_video_note(msg: types.Message):
-    """
-    Echo video note function.
-
-    :param msg: message object
-    :return: send video note
-    """
-    logging(msg, 'video_note', '{}'.format(msg.video_note.file_id))  # Calling the logger
-    await bot.send_video_note(chat_id=msg.chat.id,
-                              video_note=msg.video_note.file_id)  # Request with video note to the user
+                           message_id=msg.message_id)  # Request to copy a message
 
 
 # Entry point
