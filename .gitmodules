@@ -1,6 +1,6 @@
 [submodule "3rd-module/2023-03-13_webhook-tuning-for-a-chatbot-lesson-2/hw/innopolis-homework-webhook-lesson-2"]
 	path = 3rd-module/2023-03-13_webhook-tuning-for-a-chatbot-lesson-2/hw/innopolis-homework-webhook-lesson-2
 	url = https://github.com/notjik/innopolis-homework-webhook-lesson-2.git
-[submodule "3rd-module/2023-03-13_webhook-tuning-for-a-chatbot-lesson-3/hw/innopolis-homework-webhook-lesson-3"]
+[submodule "innopolis-homework-webhook-lesson-3"]
 	path = 3rd-module/2023-03-13_webhook-tuning-for-a-chatbot-lesson-3/hw/innopolis-homework-webhook-lesson-3
 	url = https://github.com/notjik/innopolis-homework-webhook-lesson-3.git
