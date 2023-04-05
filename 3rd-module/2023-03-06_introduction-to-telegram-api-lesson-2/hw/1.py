@@ -17,7 +17,7 @@ from dotenv import load_dotenv
 load_dotenv()
 
 # Token transfer and class definition
-bot = Bot(token=os.getenv('TOKEN_THIRD'))
+bot = Bot(token=os.getenv('TOKEN'))
 dispatcher = Dispatcher(bot)
 
 # ANSI EFFECT CODE

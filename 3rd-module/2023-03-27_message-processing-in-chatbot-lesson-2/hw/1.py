@@ -18,12 +18,12 @@ load_dotenv()
 
 # Unloading local variables and initializing the bot
 try:
-    WEBHOOK_HOST = os.getenv('WEBHOOK_HOST_SEVENTH')
-    WEBHOOK_PATH = os.getenv('WEBHOOK_PATH_SEVENTH')
+    WEBHOOK_HOST = os.getenv('WEBHOOK_HOST')
+    WEBHOOK_PATH = os.getenv('WEBHOOK_PATH')
     WEBHOOK_URL = WEBHOOK_HOST + WEBHOOK_PATH
-    WEBAPP_HOST = os.getenv('WEBAPP_HOST_SEVENTH')
-    WEBAPP_PORT = os.getenv('WEBAPP_PORT_SEVENTH')
-    bot = Bot(token=os.getenv('TOKEN_SEVENTH'))
+    WEBAPP_HOST = os.getenv('WEBAPP_HOST')
+    WEBAPP_PORT = os.getenv('WEBAPP_PORT')
+    bot = Bot(token=os.getenv('TOKEN'))
 except TypeError:
     exit('Create local variables')
 dispatcher = Dispatcher(bot)

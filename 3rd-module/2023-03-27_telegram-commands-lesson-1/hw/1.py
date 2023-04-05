@@ -1,5 +1,5 @@
 """
-Реализовать эхо бота использующего webhook.
+Добавить в Telegram бот базовые команды в виде отдельного меню.
 """
 # *You need to download: "aiogram", "python-dotenv"*
 # *You need to add a token, host, path to the environment variable*
@@ -9,7 +9,7 @@ import os
 import re
 
 from aiogram import Bot, types
-from aiogram.dispatcher import Dispatcher
+from aiogram.dispatcher import Dispatcher, filters
 from aiogram.utils import executor, exceptions
 from dotenv import load_dotenv
 
@@ -117,14 +117,14 @@ async def startup(callback):
     :param callback: dispatcher object
     :return: None
     """
-    me = await callback.bot.get_me()
+    me = await callback.bot.get_me()  # Request information about the bot
     print('{}The {}{}[{}]{} has been successfully launched.{}\n'.format(
         ansi_color['green']['text'],
         ansi_effect['bold'],
         me.username, me.id,
         ansi_effect['break'] + ansi_color['green']['text'],
         ansi_effect['break']))  # Logging message
-    await bot.delete_webhook()
+    await bot.set_webhook(WEBHOOK_URL)
 
 
 async def shutdown(callback):
@@ -142,6 +142,50 @@ async def shutdown(callback):
         ansi_effect['break'] + ansi_color['green']['text'],
         ansi_effect['break']))  # Logging message
     await bot.delete_webhook()
+
+
+async def set_commands(bot: Bot, chat_id: int):
+    commands = {
+        'ru': [
+            types.BotCommand('help', 'Справка по боту')
+        ],
+        'en': [
+            types.BotCommand('help', 'Help for the bot')
+        ]
+    }
+    for lang, comm in commands.items():
+        await bot.set_my_commands(
+            commands=comm,
+            scope=types.BotCommandScopeChat(chat_id),
+            language_code=lang
+        )
+    return
+
+
+@dispatcher.message_handler(commands=['start'])
+async def start_message(msg: types.Message):
+    """
+    The starting message of the bot
+
+    :param msg: message object
+    :return: answer
+    """
+    logging(msg, '/start', '{}'.format(msg))
+    await msg.answer('Hi! Welcome to the bot from the webhooks homework №2 of Innopolis University. \n'
+                     'This is an echo bot.')
+    await set_commands(bot, msg.chat.id)
+
+
+@dispatcher.message_handler(filters.Regexp(r'^/(help|хелп|pomosch|помощь)$'))
+async def help_message(msg: types.Message):
+    """
+    The help message of the bot
+
+    :param msg: message object
+    :return: answer
+    """
+    logging(msg, '/help', '{}'.format(msg))
+    await msg.answer("Just send me a message and I'll repeat it!")  # Request with a message to the user
 
 
 @dispatcher.message_handler(content_types=['any'])
@@ -174,5 +218,4 @@ if __name__ == '__main__':
         on_startup=startup,
         on_shutdown=shutdown,
         skip_updates=True,
-    )
-# Launching the bot
+    )  # Launching webhook
