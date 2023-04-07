@@ -7,3 +7,6 @@
 [submodule "3rd-module/2023-04-03_telegram-commands-lesson-2/hw/inno-hw-commands-lesson-2"]
 	path = 3rd-module/2023-04-03_telegram-commands-lesson-2/hw/inno-hw-commands-lesson-2
 	url = https://github.com/notjik/inno-hw-commands-lesson-2.git
+[submodule "3rd-module/2023-04-05_interim-certification-3/inno-interim-certification-3"]
+	path = 3rd-module/2023-04-05_interim-certification-3/inno-interim-certification-3
+	url = https://github.com/notjik/inno-interim-certification-3.git
