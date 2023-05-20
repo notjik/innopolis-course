@@ -10,3 +10,6 @@
 [submodule "3rd-module/2023-04-05_interim-certification-3/inno-interim-certification-3"]
 	path = 3rd-module/2023-04-05_interim-certification-3/inno-interim-certification-3
 	url = https://github.com/notjik/inno-interim-certification-3.git
+[submodule "4th-module/2023-05-01_access-limitation-lesson-2/hw/inno-hw-access-limitation-lesson-2"]
+	path = 4th-module/2023-05-01_access-limitation-lesson-2/hw/inno-hw-access-limitation-lesson-2
+	url = https://github.com/notjik/inno-hw-access-limitation-lesson-2.git
